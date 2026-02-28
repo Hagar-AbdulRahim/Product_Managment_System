@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>crud</title>
+  </head>
+  <body>
+    <div class="crud">
+      <div class="head">crud product management system</div>
+      <div class="inputs">
+        <input type="text" id="title" placeholder="title" />
+        <div class="price">
+          <input
+            type="number"
+            onkeyup="gettotal()"
+            id="price"
+            placeholder="Price"
+          />
+          <input
+            type="number"
+            onkeyup="gettotal()"
+            id="taxes"
+            placeholder="Taxes"
+          />
+          <input
+            type="number"
+            onkeyup="gettotal()"
+            id="ads"
+            placeholder="Advertisement"
+          />
+          <input
+            type="number"
+            onkeyup="gettotal()"
+            id="discount"
+            placeholder="Discount"
+          />
+          <small id="total"> </small>
+        </div>
+        <input type="number" id="count" placeholder="Count" />
+        <input type="text" id="category" placeholder="Category" />
+        <button type="button" id="submit" value="Create">Create</button>
+      </div>
+      <div class="output">
+        <div class="search">
+          <input
+            type="text"
+            id="search"
+            placeholder="search"
+            onkeyup="searchData(this.value)"
+          />
+          <div class="btnsearch">
+            <button
+              type="text"
+              onclick="getSearchMode(this.id)"
+              id="searchByTitle"
+            >
+              Search By Title
+            </button>
+            <button
+              type="text"
+              onclick="getSearchMode(this.id)"
+              id="searchCategory"
+            >
+              Search By Category
+            </button>
+          </div>
+          <div id="deleteAll"></div>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th>price</th>
+              <th>taxes</th>
+              <th>discount</th>
+              <th>total</th>
+              <th>category</th>
+              <th>update</th>
+              <th>delete</th>
+            </tr>
+
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
