@@ -20,8 +20,8 @@ function gettotal() {
 
     let result =
       (+price.value +
-        +taxes.value +
-        +ads.value -
+        (+price.value * +taxes.value) / 100 +
+        (+price.value * +ads.value) / 100 -
         +(discount.value * (price.value / 100))) *
       +(count.value || 1);
     total.innerHTML = result;
@@ -40,6 +40,15 @@ if (localStorage.product != null) {
   dataproduct = [];
 }
 submit.onclick = function () {
+  if (
+    title.value.trim() === '' ||
+    price.value.trim() === '' ||
+    category.value.trim() === ''
+  ) {
+    alert('Please fill all required fields');
+    return; // يوقف التنفيذ
+  }
+
   // e.preventDefault();
   let newpro = {
     title: title.value.toLowerCase(),
